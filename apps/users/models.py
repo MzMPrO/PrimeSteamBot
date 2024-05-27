@@ -106,9 +106,6 @@ class RegistrationData(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     phone_number = models.CharField(max_length=15, validators=[phone_validator], null=True, blank=True)
     age = models.PositiveIntegerField(verbose_name=_("Age"), null=True, blank=True)
-    region = models.ForeignKey(Region, on_delete=models.PROTECT, related_name='reg_region', null=True, blank=True)
-    area = models.ForeignKey(Area, on_delete=models.PROTECT, related_name='reg_area', null=True, blank=True)
-    village = models.ForeignKey(Village, on_delete=models.PROTECT, related_name='reg_village', null=True, blank=True)
     job_position = models.CharField(max_length=400, verbose_name=_('Job/Study place and Position'), null=True,
                                     blank=True)
 
