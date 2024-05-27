@@ -13,7 +13,6 @@ from apps.core.models import TimeStampedModel
 from apps.users.managers import UserManager
 from apps.users.validators import phone_validator
 from apps.users.choices import *
-from apps.location.models import *
 
 
 class User(AbstractUser):
@@ -90,7 +89,6 @@ class TelegramUser(TimeStampedModel):
                               default=STATUS_CHOICES[0][0])
     is_white_list = models.BooleanField(default=False, verbose_name=_("White list"))
     age = models.PositiveIntegerField(verbose_name=_("Age"))
-    village = models.ForeignKey(Village, on_delete=models.PROTECT, related_name='user_village')
     job_position = models.CharField(max_length=400, verbose_name=_('Job/Study place and Position'))
 
     # objects = BaseManager()

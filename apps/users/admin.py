@@ -42,17 +42,17 @@ class UserAdmin(auth_admin.UserAdmin, ImportExportModelAdmin):
 
 
 class TelegramUserAdmin(ImportExportModelAdmin):
-    list_display = ['name', 'username', 'chat_id', 'phone_number', "age", "village",
+    list_display = ['name', 'username', 'chat_id', 'phone_number', "age",
                     'status', 'type', 'is_admin', "is_white_list",
                     'created_at', 'language_code',
                     'first_name', 'last_name', 'id']
-    list_filter = ['status', 'type', 'language_code', "is_white_list", "village__name"]
+    list_filter = ['status', 'type', 'language_code', "is_white_list"]
     list_editable = ['is_admin', "is_white_list"]
     search_fields = ['name', 'username', 'phone_number', 'first_name', 'last_name', 'chat_id']
 
     fieldsets = (
         (_('Telegram Info'), {"fields": ('first_name', 'last_name', 'username', 'language_code')}),
-        (_('Personal Info'), {"fields": ('name', 'phone_number', "age", "village", "job_position")}),
+        (_('Personal Info'), {"fields": ('name', 'phone_number', "age", "job_position")}),
         (_('Others'), {"fields": ('status', 'type')})
     )
 
